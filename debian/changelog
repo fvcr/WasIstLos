@@ -1,5 +1,5 @@
-whatsapp-for-linux (0) stable; urgency=medium
+whatsapp-for-linux (1.2.1-1) unstable; urgency=medium
 
-  * See https://github.com/eneshecan/whatsapp-for-linux/releases
+  * Initial release.
 
- -- Enes Hecan <nshecan@gmail.com>  Sun, 20 Jun 2021 10:30:00 +0200
+ -- Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>  Wed, 25 Aug 2021 02:49:57 +0000
