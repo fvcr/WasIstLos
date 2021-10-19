@@ -1,3 +1,11 @@
+whatsapp-for-linux (1.3.0-1) unstable; urgency=medium
+
+  * New upstream version 1.3.0.
+  * Switch build-dep from libappindicator3-dev to libayatana-appindicator3-dev.
+  * Create debian/patches/0001-switch_build-dep.patch.
+
+ -- Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>  Tue, 19 Oct 2021 14:31:25 +0000
+
 whatsapp-for-linux (1.2.1-1) unstable; urgency=medium
 
   * Initial release.
