@@ -1,3 +1,6 @@
+#include <cstdio>
+#include <clocale>
+#include <unistd.h>
 #include <iostream>
 #include "Application.hpp"
 #include "MainWindow.hpp"
@@ -5,6 +8,20 @@
 
 namespace
 {
+    void redirectOutputToLogger()
+    {
+        auto const fl = ::popen("logger -i -s -t whatsapp-for-linux", "w");
+        if (!fl)
+        {
+            auto const errorNumber = errno;
+            std::cerr << "Failed to open pipe to logger: " << strerror(errorNumber) << std::endl;
+            return;
+        }
+
+        auto const fd = ::fileno(fl);
+        ::dup2(fd, STDERR_FILENO);
+    }
+
     void sigterm(int)
     {
         Application::getInstance().quit();
@@ -13,6 +30,10 @@ namespace
 
 int main(int argc, char** argv)
 {
+    setlocale(LC_ALL, "");
+
+    redirectOutputToLogger();
+
     auto app = Application{argc, argv, "com.github.whatsapp-for-linux"};
 
     signal(SIGINT,  sigterm);
