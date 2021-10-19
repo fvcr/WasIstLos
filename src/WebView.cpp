@@ -1,5 +1,7 @@
 #include "WebView.hpp"
 #include <iostream>
+#include <string>
+#include <optional>
 #include <locale>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
@@ -7,10 +9,10 @@
 
 namespace
 {
-    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com/";
+    constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com";
 
 
-    std::string systemLanguage()
+    std::optional<std::string> getSystemLanguage()
     {
         try
         {
@@ -19,8 +21,8 @@ namespace
         }
         catch (std::runtime_error const& error)
         {
-            std::cerr << "WebView: " << error.what() << std::endl;
-            return "en_US";
+            std::cerr << "WebView: Failed to get system language: " << error.what() << std::endl;
+            return std::nullopt;
         }
     }
 
@@ -58,8 +60,10 @@ namespace
                 auto const request = webkit_navigation_action_get_request(navigationAction);
                 auto const uri = webkit_uri_request_get_uri(request);
 
-                GError* error = nullptr;
-                gtk_show_uri_on_window(nullptr, uri, GDK_CURRENT_TIME, &error);
+                if (GError* error = nullptr; !gtk_show_uri_on_window(nullptr, uri, GDK_CURRENT_TIME, &error))
+                {
+                    std::cerr << "WebView: Failed to show uri: " << error->message << std::endl;
+                }
                 return TRUE;
             }
 
@@ -107,6 +111,10 @@ namespace
 
             webkit_web_context_initialize_notification_permissions(context, allowedOrigins, nullptr);
         }
+        else
+        {
+            webkit_web_context_initialize_notification_permissions(context, nullptr, nullptr);
+        }
     }
 
     void notificationDestroyed(WebKitNotification*, gpointer userData)
@@ -147,10 +155,12 @@ WebView::WebView()
     g_signal_connect(webContext, "download-started", G_CALLBACK(downloadStarted), nullptr);
     g_signal_connect(webContext, "initialize-notification-permissions", G_CALLBACK(initializeNotificationPermission), nullptr);
 
-    auto const lang = systemLanguage();
-    gchar const* const spellCheckingLangs[] = {lang.c_str(), 0};
-    webkit_web_context_set_spell_checking_enabled(webContext, TRUE);
-    webkit_web_context_set_spell_checking_languages(webContext, spellCheckingLangs);
+    if (auto const lang = getSystemLanguage(); lang.has_value())
+    {
+        gchar const* const spellCheckingLangs[] = {lang.value().c_str(), nullptr};
+        webkit_web_context_set_spell_checking_enabled(webContext, TRUE);
+        webkit_web_context_set_spell_checking_languages(webContext, spellCheckingLangs);
+    }
 
     auto const settings = webkit_web_view_get_settings(*this);
     webkit_settings_set_enable_developer_extras(settings, TRUE);
@@ -172,6 +182,23 @@ WebView::operator WebKitWebView*()
 void WebView::refresh()
 {
     webkit_web_view_reload(*this);
+}
+
+void WebView::openPhoneNumber(std::string const& phoneNumber)
+{
+    auto script = std::string{};
+    script.append("(function(){"
+        "var a = document.createElement(\"a\");"
+        "a.href = \"");
+    script.append(WHATSAPP_WEB_URI);
+    script.append("/send?phone=");
+    script.append(phoneNumber);
+    script.append("\";"
+        "document.body.appendChild(a);"
+        "a.click();"
+        "a.remove();"
+        "})();");
+    webkit_web_view_run_javascript(*this, script.c_str(), nullptr, nullptr, nullptr);
 }
 
 void WebView::zoomIn()
