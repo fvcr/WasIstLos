@@ -2,8 +2,23 @@
 
 An unofficial WhatsApp desktop application written in C++.
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/whatsapp-for-linux)
-[![Get it from AUR](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png)](https://aur.archlinux.org/packages/whatsapp-for-linux)
+<p align="left">
+    <a href="https://snapcraft.io/whatsapp-for-linux">
+        <img align="center" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width="120">
+    </a>
+    <a href="https://aur.archlinux.org/packages/whatsapp-for-linux">
+        <img align="center" alt="Get it from the AUR" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Arch_Linux_logo.svg/200px-Arch_Linux_logo.svg.png" width="120">
+    </a>
+    <a href="https://gpo.zugaina.org/Overlays/guru/net-im/whatsapp-for-linux">
+        <img align="center" alt="Get it from the Gentoo Overlay Guru" src="https://gpo.zugaina.org/img/logo.png" width="120">
+    </a>
+    <a href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/instant-messengers/whatsapp-for-linux/default.nix">
+        <img align="center" alt="Get it from the nixpkgs" src="https://nixos.org/logo/nixos-hires.png" width="120">
+    </a>
+    <a href="https://github.com/OpenMandrivaAssociation/whatsapp-for-linux/tree/master">
+        <img align="center" alt="Get it from the OpenMandrive Cooker" src="https://www.openmandriva.org/squelettes/img/OM-300pl.png" width="120">
+    </a>
+</p>
 
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Build/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
 [![Action Status](https://github.com/eneshecan/whatsapp-for-linux/workflows/Install/badge.svg)](https://github.com/eneshecan/whatsapp-for-linux/actions)
@@ -21,7 +36,7 @@ An unofficial WhatsApp desktop application written in C++.
 * Fullscreen mode
 * Show/Hide headerbar by pressing *Alt+H*
 * Spell check in system language. You might need to install the corresponding dictionary to get this working i.e. `aspell-en` package for English
-* Open chat with a phone number
+* Open chat by phone number
 
 
 ## Using whatsapp-for-linux
@@ -61,6 +76,10 @@ Run `dpkg-buildpackage -uc -us -ui`.
 ### Snap
 
 Run `snapcraft`. Pass `--use-lxd` option in a virtual environment.
+
+### AppImage
+Run `appimage-builder --skip-test --recipe ./appimage/AppImageBuilder.yml`.
+Make sure that the app is installed into the `<Project Root>/AppDir` directory before building the package.
 
 
 ## Contributing
