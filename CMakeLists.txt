@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(whatsapp-for-linux VERSION 1.3.2)
+project(whatsapp-for-linux VERSION 1.4.0)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,7 +19,7 @@ add_custom_command(
 FIND_PACKAGE(PkgConfig REQUIRED)
 PKG_CHECK_MODULES(GTKMM3 gtkmm-3.0 REQUIRED)
 PKG_CHECK_MODULES(WEBKIT webkit2gtk-4.0 REQUIRED)
-PKG_CHECK_MODULES(APP_INDICATOR appindicator3-0.1 REQUIRED)
+PKG_CHECK_MODULES(APP_INDICATOR ayatana-appindicator3-0.1 REQUIRED)
 include_directories(${GTKMM3_INCLUDE_DIRS} ${WEBKIT_INCLUDE_DIRS} ${APP_INDICATOR_INCLUDE_DIRS})
 
 add_executable(whatsapp-for-linux
