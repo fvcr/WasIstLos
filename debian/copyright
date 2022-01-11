@@ -4,12 +4,12 @@ Upstream-Contact: https://github.com/eneshecan/whatsapp-for-linux/issues
 Source: https://github.com/eneshecan/whatsapp-for-linux
 
 Files: *
-Copyright: 2020 Enes Hecan <nshecan@gmail.com>
+Copyright: 2020-2022 Enes Hecan <nshecan@gmail.com>
 License: GPL-3
 
 Files: debian/*
-Copyright: 2020 Enes Hecan <nshecan@gmail.com>
-           2021 Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>
+Copyright: 2020-2022 Enes Hecan <nshecan@gmail.com>
+           2021-2022 Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>
 License: GPL-3
 
 License: GPL-3
