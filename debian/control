@@ -1,7 +1,7 @@
 Source: whatsapp-for-linux
 Section: web
 Priority: optional
-Maintainer: Francisco Vilmar Cardoso Ruviaro <francisco.ruviaro@riseup.net>
+Maintainer: Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>
 Build-Depends: cmake,
                debhelper-compat (= 13),
                libayatana-appindicator3-dev,
