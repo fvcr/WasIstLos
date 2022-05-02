@@ -2,6 +2,7 @@
 #include <clocale>
 #include <unistd.h>
 #include <iostream>
+#include "Config.hpp"
 #include "ui/Application.hpp"
 #include "ui/MainWindow.hpp"
 #include "util/Settings.hpp"
@@ -10,7 +11,7 @@ namespace
 {
     void redirectOutputToLogger()
     {
-        auto const fl = ::popen("logger -i -s -t whatsapp-for-linux", "w");
+        auto const fl = ::popen("logger -i -s -t " WFL_NAME, "w");
         if (!fl)
         {
             auto const errorNumber = errno;
@@ -34,7 +35,7 @@ int main(int argc, char** argv)
 
     redirectOutputToLogger();
 
-    auto app = wfl::ui::Application{argc, argv, "com.github.whatsapp-for-linux", Gio::APPLICATION_HANDLES_OPEN};
+    auto app = wfl::ui::Application{argc, argv, WFL_APP_ID, Gio::APPLICATION_HANDLES_OPEN};
 
     signal(SIGINT,  sigterm);
     signal(SIGTERM, sigterm);

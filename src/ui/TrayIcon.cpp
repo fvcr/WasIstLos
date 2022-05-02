@@ -1,6 +1,7 @@
 #include "TrayIcon.hpp"
 #include <utility>
 #include <gtkmm/icontheme.h>
+#include "Config.hpp"
 
 namespace wfl::ui
 {
@@ -10,8 +11,8 @@ namespace wfl::ui
         {
             constexpr auto const WHATSAPP_TRAY                     = "whatsapp-tray";
             constexpr auto const WHATSAPP_TRAY_ATTENTION           = "whatsapp-tray-attention";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = "whatsapp-for-linux-tray";
-            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = "whatsapp-for-linux-tray-attention";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY           = WFL_ICON "-tray";
+            constexpr auto const WHATSAPP_FOR_LINUX_TRAY_ATTENTION = WFL_ICON "-tray-attention";
 
             auto const iconTheme = Gtk::IconTheme::get_default();
             if (iconTheme->has_icon(WHATSAPP_TRAY) && iconTheme->has_icon(WHATSAPP_TRAY_ATTENTION))
@@ -30,15 +31,15 @@ namespace wfl::ui
     }
 
     TrayIcon::TrayIcon()
-        : m_appIndicator{app_indicator_new("com.github.whatsapp-for-linux.tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
+        : m_appIndicator{app_indicator_new(WFL_APP_ID ".Tray", "", APP_INDICATOR_CATEGORY_COMMUNICATIONS)}
         , m_popupMenu{}
         , m_signalShow{}
         , m_signalAbout{}
         , m_signalQuit{}
     {
         auto const [trayIconName, attentionIconName] = getTrayIconNames();
-        app_indicator_set_icon_full(m_appIndicator, trayIconName, "Whatsapp for Linux Tray");
-        app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, "Whatsapp for Linux Tray Attention");
+        app_indicator_set_icon_full(m_appIndicator, trayIconName, WFL_FRIENDLY_NAME " Tray");
+        app_indicator_set_attention_icon_full(m_appIndicator, attentionIconName, WFL_FRIENDLY_NAME "Tray Attention");
 
         auto const showMenuItem = Gtk::manage(new Gtk::MenuItem{"Show"});
         auto const aboutMenuItem = Gtk::manage(new Gtk::MenuItem{"About"});

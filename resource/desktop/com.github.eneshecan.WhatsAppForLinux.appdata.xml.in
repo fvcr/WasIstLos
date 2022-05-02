@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020-2022 Enes Hecan <nshecan@gmail.com> -->
+<component type="desktop-application">
+  <id>${WFL_APP_ID}</id>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>${WFL_FRIENDLY_NAME}</name>
+  <summary>${WFL_DESCRIPTION}</summary>
+  <content_rating type="oars-1.1"/>
+
+  <description>
+    <p>
+      WhatsApp for Linux is an unofficial WhatsApp desktop application written in C++.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">${WFL_APP_ID}.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Application</caption>
+      <image>https://raw.githubusercontent.com/eneshecan/whatsapp-for-linux/master/screenshot/app.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/eneshecan/whatsapp-for-linux</url>
+  <url type="bugtracker">https://github.com/eneshecan/whatsapp-for-linux/issues</url>
+
+  <developer_name>Enes Hecan</developer_name>
+  <update_contact>nshecan_AT_gmail.com</update_contact>
+
+  <mimetypes>
+     <mimetype>x-scheme-handler/whatsapp</mimetype>
+  </mimetypes>
+
+  <releases>
+    <release version="${WFL_VERSION}" date="${WFL_BUILD_DATE}"/>
+  </releases>
+</component>
