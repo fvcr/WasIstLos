@@ -5,7 +5,7 @@
 #include <gtkmm/aboutdialog.h>
 #include <gtkmm/shortcutswindow.h>
 #include "Application.hpp"
-#include "../Version.hpp"
+#include "Config.hpp"
 #include "../util/Settings.hpp"
 
 namespace wfl::ui
@@ -20,10 +20,10 @@ namespace wfl::ui
         , m_shortcutsWindow{nullptr}
         , m_fullscreen{false}
     {
-        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/whatsapp-for-linux.png");
-        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/whatsapp-for-linux.png");
-        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/whatsapp-for-linux.png");
-        auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/whatsapp-for-linux.png");
+        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/"   WFL_ICON ".png");
+        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/"   WFL_ICON ".png");
+        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/"   WFL_ICON ".png");
+        auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/" WFL_ICON ".png");
         set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
         set_default_icon(appIcon64x64);
 
@@ -82,7 +82,7 @@ namespace wfl::ui
         quitButton->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onQuit));
 
         m_webView.signalLoadStatus().connect(sigc::mem_fun(*this, &MainWindow::onLoadStatusChanged));
-        m_webView.signalNotification().connect(sigc::mem_fun(m_trayIcon, &TrayIcon::setAttention));
+        m_webView.signalNotification().connect(sigc::mem_fun(*this, &MainWindow::onNotificationChanged));
         m_webView.signalNotificationClicked().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalShow().connect(sigc::mem_fun(*this, &MainWindow::onShow));
         m_trayIcon.signalAbout().connect(sigc::mem_fun(*this, &MainWindow::onAbout));
@@ -213,10 +213,19 @@ namespace wfl::ui
         }
     }
 
+    void MainWindow::onNotificationChanged(bool attention)
+    {
+        if (!is_visible())
+        {
+            m_trayIcon.setAttention(attention);
+        }
+    }
+
     void MainWindow::onShow()
     {
         if (!is_visible())
         {
+            m_trayIcon.setAttention(false);
             Application::getInstance().add_window(*this);
         }
 
@@ -297,9 +306,9 @@ namespace wfl::ui
         auto aboutDialog = Gtk::AboutDialog{};
 
         aboutDialog.set_title("About");
-        aboutDialog.set_version(VERSION);
-        aboutDialog.set_program_name("Whatsapp for Linux");
-        aboutDialog.set_comments("An unofficial WhatsApp desktop application for linux.");
+        aboutDialog.set_version(WFL_VERSION);
+        aboutDialog.set_program_name(WFL_FRIENDLY_NAME);
+        aboutDialog.set_comments(WFL_DESCRIPTION);
         aboutDialog.set_website("https://github.com/eneshecan/whatsapp-for-linux");
         aboutDialog.set_website_label("Github Repository");
         aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
