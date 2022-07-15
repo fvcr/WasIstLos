@@ -15,13 +15,13 @@
         <property name="orientation">vertical</property>
         <property name="spacing">4</property>
         <child>
-          <object class="GtkButtonBox" id="zoom_buttonbox">
+          <object class="GtkButtonBox" id="buttonbox_zoom">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">4</property>
             <property name="layout-style">center</property>
             <child>
-              <object class="GtkButton" id="zoom_out_button">
+              <object class="GtkButton" id="button_zoom_out">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -43,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="zoom_level_label">
+              <object class="GtkLabel" id="label_zoom_level">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="label" translatable="yes">100%</property>
@@ -56,7 +56,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="zoom_in_button">
+              <object class="GtkButton" id="button_zoom_in">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
@@ -85,9 +85,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSeparator" id="separator_1">
+          <object class="GtkModelButton" id="button_fullscreen">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="text" translatable="yes">Fullscreen</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -96,13 +98,9 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="close_to_tray_button">
+          <object class="GtkSeparator" id="separator_1">
             <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="relief">none</property>
-            <property name="role">check</property>
-            <property name="text" translatable="yes">Close To Tray</property>
+            <property name="can-focus">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -111,13 +109,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="start_in_tray_button">
+          <object class="GtkModelButton" id="button_preferences">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
-            <property name="relief">none</property>
-            <property name="role">check</property>
-            <property name="text" translatable="yes">Start In Tray</property>
+            <property name="text" translatable="yes">Preferences</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -126,13 +122,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="autostart_button">
+          <object class="GtkModelButton" id="button_shortcuts">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
-            <property name="relief">none</property>
-            <property name="role">check</property>
-            <property name="text" translatable="yes">Autostart</property>
+            <property name="text" translatable="yes">Keyboard Shortcuts</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -141,12 +135,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkModelButton" id="fullscreen_button">
+          <object class="GtkModelButton" id="button_about">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
-            <property name="relief">none</property>
-            <property name="text" translatable="yes">_Fullscreen</property>
+            <property name="text" translatable="yes">About</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -155,9 +148,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSeparator" id="separator_2">
+          <object class="GtkModelButton" id="button_quit">
             <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="text" translatable="yes">Quit</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -165,58 +160,17 @@
             <property name="position">6</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkModelButton" id="shortcuts_button">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="text" translatable="yes">_Keyboard Shortcuts</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">7</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="about_button">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="relief">none</property>
-            <property name="text" translatable="yes">_About</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">8</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton" id="quit_button">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="text" translatable="yes">_Quit</property>
-            <property name="relief">none</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">9</property>
-          </packing>
-        </child>
       </object>
     </child>
   </object>
-  <object class="GtkApplicationWindow" id="main_window">
+  <object class="GtkApplicationWindow" id="window_main">
     <property name="can-focus">False</property>
     <property name="title" translatable="yes">WhatsApp</property>
     <property name="default-width">1280</property>
     <property name="default-height">720</property>
     <child>
       <!-- n-columns=1 n-rows=1 -->
-      <object class="GtkGrid" id="main_grid">
+      <object class="GtkGrid" id="grid_main">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="row-homogeneous">True</property>
@@ -227,20 +181,20 @@
       </object>
     </child>
     <child type="titlebar">
-      <object class="GtkHeaderBar" id="header_bar">
+      <object class="GtkHeaderBar" id="headerbar">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="title" translatable="yes">WhatsApp for Linux</property>
         <property name="has-subtitle">False</property>
         <property name="show-close-button">True</property>
         <child>
-          <object class="GtkButton" id="refresh_button">
+          <object class="GtkButton" id="button_refresh">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="tooltip-text" translatable="yes">Refresh</property>
             <child>
-              <object class="GtkImage" id="refresh_image">
+              <object class="GtkImage" id="image_refresh">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="icon-name">view-refresh-symbolic</property>
@@ -250,29 +204,14 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton" id="open_phone_number_button">
-            <property name="visible">True</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="tooltip-text" translatable="yes">Open chat by phone number</property>
-            <child>
-              <object class="GtkImage" id="open_phone_number_image">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="icon-name">input-dialpad-symbolic</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="header_menu_button">
+          <object class="GtkMenuButton" id="button_header_menu">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="focus-on-click">False</property>
             <property name="receives-default">True</property>
             <property name="popover">header_menu</property>
             <child>
-              <object class="GtkImage" id="header_menu_image">
+              <object class="GtkImage" id="image_header_menu">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="icon-name">open-menu-symbolic</property>
@@ -281,6 +220,24 @@
           </object>
           <packing>
             <property name="pack-type">end</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button_open_phone_number">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes">Open chat by phone number</property>
+            <child>
+              <object class="GtkImage" id="image_open_phone_number">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">input-dialpad-symbolic</property>
+              </object>
+            </child>
+          </object>
+          <packing>
             <property name="position">1</property>
           </packing>
         </child>
