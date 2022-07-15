@@ -1,3 +1,10 @@
+whatsapp-for-linux (1.4.4-1) unstable; urgency=medium
+
+  * New upstream version 1.4.4.
+  * Bump Standards-Version to 4.6.1.
+
+ -- Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>  Fri, 15 Jul 2022 17:46:46 +0000
+
 whatsapp-for-linux (1.4.3-1) unstable; urgency=medium
 
   * New upstream version 1.4.3.
