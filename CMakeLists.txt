@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(
     whatsapp-for-linux
-    VERSION 1.4.4
+    VERSION 1.4.7
     DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
     HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
     LANGUAGES C CXX)
@@ -39,6 +39,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
 add_executable(${CMAKE_PROJECT_NAME}
     src/main.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
+    src/util/Helper.cpp
     src/util/Settings.cpp
     src/ui/Application.cpp
     src/ui/MainWindow.cpp
