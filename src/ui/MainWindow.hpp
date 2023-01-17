@@ -12,8 +12,7 @@
 
 namespace wfl::ui
 {
-    class MainWindow
-        : public Gtk::ApplicationWindow
+    class MainWindow : public Gtk::ApplicationWindow
     {
         public:
             MainWindow(BaseObjectType* cobject, Glib::RefPtr<Gtk::Builder> const& refBuilder);
@@ -24,7 +23,7 @@ namespace wfl::ui
         protected:
             bool on_key_press_event(GdkEventKey* keyEvent) override;
             bool on_window_state_event(GdkEventWindowState* windowStateEvent) override;
-            bool on_delete_event(GdkEventAny* any_event) override;
+            bool on_delete_event(GdkEventAny*) override;
 
         private:
             void onRefresh();

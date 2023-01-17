@@ -4,8 +4,7 @@
 
 namespace wfl::ui
 {
-    class Application
-        : public Gtk::Application
+    class Application : public Gtk::Application
     {
         public:
             static Application& getInstance();
@@ -16,6 +15,9 @@ namespace wfl::ui
         public:
             void keepAlive();
             void endKeepAlive();
+
+        protected:
+            virtual void on_activate() override;
 
         private:
             static Application* m_instance;

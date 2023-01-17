@@ -10,8 +10,7 @@ namespace wfl::ui
         void loadChanged(WebKitWebView*, WebKitLoadEvent loadEvent, gpointer userData);
     }
 
-    class WebView
-        : public Gtk::Widget
+    class WebView : public Gtk::Widget
     {
         public:
             WebView();
@@ -27,8 +26,8 @@ namespace wfl::ui
             void            openPhoneNumber(std::string const& phoneNumber);
             void            zoomIn();
             void            zoomOut();
-            double          getZoomLevel() const noexcept;
-            std::string     getZoomLevelString() const noexcept;
+            double          getZoomLevel();
+            std::string     getZoomLevelString();
 
             sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
             sigc::signal<void, bool>            signalNotification() const noexcept;
@@ -42,7 +41,6 @@ namespace wfl::ui
 
         private:
             WebKitLoadEvent                     m_loadStatus;
-            double                              m_zoomLevel;
             bool                                m_stoppedResponding;
             sigc::signal<void, WebKitLoadEvent> m_signalLoadStatus;
             sigc::signal<void, bool>            m_signalNotification;

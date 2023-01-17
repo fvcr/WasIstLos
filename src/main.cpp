@@ -1,5 +1,6 @@
 #include <clocale>
 #include <iostream>
+#include <glibmm/i18n.h>
 #include "Config.hpp"
 #include "ui/Application.hpp"
 #include "ui/MainWindow.hpp"
@@ -18,11 +19,15 @@ int main(int argc, char** argv)
 {
     setlocale(LC_ALL, "");
 
+    bindtextdomain(GETTEXT_PACKAGE, WFL_LOCALEDIR);
+    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+    textdomain(GETTEXT_PACKAGE);
+
     auto app = wfl::ui::Application{argc, argv, WFL_APP_ID, Gio::APPLICATION_HANDLES_OPEN};
 
     wfl::util::redirectOutputToLogger();
 
-    signal(SIGINT,  sigterm);
+    signal(SIGINT, sigterm);
     signal(SIGTERM, sigterm);
     signal(SIGPIPE, SIG_IGN);
 
@@ -42,7 +47,8 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    app.signal_open().connect([&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
+    app.signal_open().connect(
+        [&app, &mainWindow](Gtk::Application::type_vec_files const& files, const Glib::ustring&)
         {
             if (!files.empty())
             {
@@ -52,18 +58,17 @@ int main(int argc, char** argv)
             }
         });
 
-    auto retCode = 0;
-
-    if (wfl::util::Settings::getInstance().getStartInTray() && wfl::util::Settings::getInstance().getCloseToTray())
+    if (wfl::util::Settings::getInstance().getValue<bool>("general", "start-in-tray")
+        && wfl::util::Settings::getInstance().getValue<bool>("general", "close-to-tray"))
     {
         mainWindow->hide();
         wfl::ui::Application::getInstance().keepAlive();
-        retCode = app.run();
+        return app.run();
     }
-    else
+    else if (wfl::util::Settings::getInstance().getValue<bool>("general", "start-minimized"))
     {
-        retCode = app.run(*mainWindow);
+        mainWindow->iconify();
     }
 
-    return retCode;
+    return app.run(*mainWindow);
 }

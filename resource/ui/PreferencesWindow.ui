@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.22"/>
   <object class="GtkWindow" id="window_preferences">
     <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="window-position">center-on-parent</property>
     <property name="default-width">640</property>
     <property name="default-height">360</property>
     <child>
@@ -47,6 +49,18 @@
               </packing>
             </child>
             <child>
+              <object class="GtkLabel" id="label_start_minimized">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Start Minimized</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">2</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkLabel" id="label_autostart">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
@@ -55,7 +69,7 @@
               </object>
               <packing>
                 <property name="left-attach">0</property>
-                <property name="top-attach">2</property>
+                <property name="top-attach">3</property>
               </packing>
             </child>
             <child>
@@ -83,10 +97,10 @@
               </packing>
             </child>
             <child>
-              <object class="GtkSwitch" id="switch_autostart">
+              <object class="GtkSwitch" id="switch_start_minimized">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="tooltip-text" translatable="yes">Start application after system boots</property>
+                <property name="tooltip-text" translatable="yes">Start application as minimized</property>
                 <property name="halign">end</property>
               </object>
               <packing>
@@ -95,22 +109,10 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="label_hw_accel">
+              <object class="GtkSwitch" id="switch_autostart">
                 <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="halign">start</property>
-                <property name="label" translatable="yes">Hardware Acceleration</property>
-              </object>
-              <packing>
-                <property name="left-attach">0</property>
-                <property name="top-attach">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkComboBoxText" id="combobox_hw_accel">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="tooltip-text" translatable="yes">Set hardware acceleration policy used by webkit</property>
+                <property name="can-focus">True</property>
+                <property name="tooltip-text" translatable="yes">Start application after system boots</property>
                 <property name="halign">end</property>
               </object>
               <packing>
@@ -126,13 +128,10 @@
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">General</property>
           </object>
-          <packing>
-            <property name="tab-fill">False</property>
-          </packing>
         </child>
         <child>
           <!-- n-columns=2 n-rows=1 -->
-          <object class="GtkGrid" id="grid_network">
+          <object class="GtkGrid" id="grid_appearance">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="margin-start">8</property>
@@ -143,11 +142,11 @@
             <property name="column-spacing">8</property>
             <property name="column-homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="label_allow_permissions">
+              <object class="GtkLabel" id="label_prefer_dark_theme">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="halign">start</property>
-                <property name="label" translatable="yes">Allow Permissions</property>
+                <property name="label" translatable="yes">Prefer Dark Theme</property>
               </object>
               <packing>
                 <property name="left-attach">0</property>
@@ -155,10 +154,10 @@
               </packing>
             </child>
             <child>
-              <object class="GtkSwitch" id="switch_allow_permissions">
+              <object class="GtkSwitch" id="switch_prefer_dark_theme">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="tooltip-text" translatable="yes">Allow permissions on application startup</property>
+                <property name="tooltip-text" translatable="yes">Prefer dark theme for the application if system theme includes a dark variant</property>
                 <property name="halign">end</property>
               </object>
               <packing>
@@ -172,14 +171,88 @@
           </packing>
         </child>
         <child type="tab">
-          <object class="GtkLabel" id="label_network">
+          <object class="GtkLabel" id="label_appearance">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="label" translatable="yes">Network</property>
+            <property name="label" translatable="yes">Appearance</property>
           </object>
           <packing>
             <property name="position">1</property>
-            <property name="tab-fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <!-- n-columns=2 n-rows=2 -->
+          <object class="GtkGrid" id="grid_web">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-start">8</property>
+            <property name="margin-end">8</property>
+            <property name="margin-top">8</property>
+            <property name="margin-bottom">8</property>
+            <property name="row-spacing">8</property>
+            <property name="column-spacing">8</property>
+            <property name="column-homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="label_hw_accel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Hardware Acceleration</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label_allow_permissions">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Allow Permissions</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBoxText" id="combobox_hw_accel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="tooltip-text" translatable="yes">Set hardware acceleration policy used by webkit</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_allow_permissions">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="tooltip-text" translatable="yes">Allow permissions on application startup</property>
+                <property name="halign">end</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child type="tab">
+          <object class="GtkLabel" id="label_web">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="label" translatable="yes">Web</property>
+          </object>
+          <packing>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
