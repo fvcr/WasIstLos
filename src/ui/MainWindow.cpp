@@ -1,4 +1,5 @@
 #include "MainWindow.hpp"
+#include <glibmm/i18n.h>
 #include <gtkmm/grid.h>
 #include <gtkmm/button.h>
 #include <gtkmm/modelbutton.h>
@@ -21,9 +22,9 @@ namespace wfl::ui
         , m_shortcutsWindow{nullptr}
         , m_fullscreen{false}
     {
-        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/"   WFL_ICON ".png");
-        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/"   WFL_ICON ".png");
-        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/"   WFL_ICON ".png");
+        auto const appIcon16x16   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/16x16/apps/" WFL_ICON ".png");
+        auto const appIcon32x32   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/32x32/apps/" WFL_ICON ".png");
+        auto const appIcon64x64   = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/64x64/apps/" WFL_ICON ".png");
         auto const appIcon128x128 = Gdk::Pixbuf::create_from_resource("/main/image/icons/hicolor/128x128/apps/" WFL_ICON ".png");
         set_icon_list({appIcon16x16, appIcon32x32, appIcon64x64, appIcon128x128});
         set_default_icon(appIcon64x64);
@@ -83,9 +84,8 @@ namespace wfl::ui
 
         show_all();
 
-        m_trayIcon.setVisible(util::Settings::getInstance().getCloseToTray());
-
-        m_headerBar->set_visible(util::Settings::getInstance().getHeaderBar());
+        m_trayIcon.setVisible(util::Settings::getInstance().getValue<bool>("general", "close-to-tray"));
+        m_headerBar->set_visible(util::Settings::getInstance().getValue<bool>("general", "header-bar", true));
     }
 
     void MainWindow::openUrl(std::string const& url)
@@ -114,7 +114,16 @@ namespace wfl::ui
                 {
                     auto const visible = !m_headerBar->is_visible();
                     m_headerBar->set_visible(visible);
-                    util::Settings::getInstance().setHeaderBar(visible);
+                    util::Settings::getInstance().setValue("general", "header-bar", visible);
+                    return true;
+                }
+                break;
+
+            case GDK_KEY_P:
+            case GDK_KEY_p:
+                if (keyEvent->state & GDK_CONTROL_MASK)
+                {
+                    onOpenPreferences();
                     return true;
                 }
                 break;
@@ -143,14 +152,14 @@ namespace wfl::ui
         return Gtk::ApplicationWindow::on_key_press_event(keyEvent);
     }
 
-    bool MainWindow::on_window_state_event(GdkEventWindowState *windowStateEvent)
+    bool MainWindow::on_window_state_event(GdkEventWindowState* windowStateEvent)
     {
         m_fullscreen = (windowStateEvent->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
 
         return Gtk::ApplicationWindow::on_window_state_event(windowStateEvent);
     }
 
-    bool MainWindow::on_delete_event(GdkEventAny* any_event)
+    bool MainWindow::on_delete_event(GdkEventAny*)
     {
         if (m_trayIcon.isVisible())
         {
@@ -275,12 +284,12 @@ namespace wfl::ui
     {
         auto aboutDialog = Gtk::AboutDialog{};
 
-        aboutDialog.set_title("About");
+        aboutDialog.set_title(_("About"));
         aboutDialog.set_version(WFL_VERSION);
-        aboutDialog.set_program_name(WFL_FRIENDLY_NAME);
-        aboutDialog.set_comments(WFL_DESCRIPTION);
+        aboutDialog.set_program_name(_("WhatsApp for Linux"));
+        aboutDialog.set_comments(_("An unofficial WhatsApp desktop application for Linux"));
         aboutDialog.set_website(WFL_HOMEPAGE);
-        aboutDialog.set_website_label("Github Repository");
+        aboutDialog.set_website_label(_("GitHub Repository"));
         aboutDialog.set_license_type(Gtk::LICENSE_GPL_3_0);
 
         aboutDialog.set_transient_for(*this);
