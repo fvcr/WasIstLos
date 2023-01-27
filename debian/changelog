@@ -1,3 +1,9 @@
+whatsapp-for-linux (1.5.2-1) unstable; urgency=medium
+
+  * New upstream version 1.5.2.
+
+ -- Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>  Fri, 27 Jan 2023 23:56:29 +0000
+
 whatsapp-for-linux (1.5.1-1) unstable; urgency=medium
 
   * New upstream version 1.5.1.
