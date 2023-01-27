@@ -1,7 +1,10 @@
-#!/bin/bash
+#!/usr/bin/make -f
+# -*- makefile -*-
 
-echo "Setting version to ${RELEASE_VERSION}"
-sed -i -E "s/\((.*?)\)/(${RELEASE_VERSION})/g" debian/changelog
+override_dh_builddeb:
+	dh_builddeb -- -Zxz -z9
 
 %:
- dh $@
+	dh $@
+
+.PHONY: override_dh_builddeb
