@@ -26,8 +26,10 @@ namespace wfl::ui
             void            openPhoneNumber(std::string const& phoneNumber);
             void            zoomIn();
             void            zoomOut();
+            void            resetZoom();
             double          getZoomLevel();
             std::string     getZoomLevelString();
+            void            setMinFontSize(unsigned int fontSize);
 
             sigc::signal<void, WebKitLoadEvent> signalLoadStatus() const noexcept;
             sigc::signal<void, bool>            signalNotification() const noexcept;

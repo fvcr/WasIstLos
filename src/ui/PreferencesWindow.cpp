@@ -10,6 +10,8 @@ namespace wfl::ui
         , m_trayIcon{&trayIcon}
         , m_webView{&webView}
         , m_switchStartInTray{nullptr}
+        , m_switchStartMinimized{nullptr}
+        , m_switchNotificationSounds{nullptr}
         , m_comboboxHwAccel{nullptr}
     {
         Gtk::Switch* switchCloseToTray = nullptr;
@@ -26,6 +28,9 @@ namespace wfl::ui
         refBuilder->get_widget("switch_autostart", switchAutostart);
         switchAutostart->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAutostartChanged), false);
 
+        refBuilder->get_widget("switch_notification_sounds", m_switchNotificationSounds);
+        m_switchNotificationSounds->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onNotificationSoundsChanged), false);
+
         Gtk::Switch* switchPreferDarkTheme = nullptr;
         refBuilder->get_widget("switch_prefer_dark_theme", switchPreferDarkTheme);
         switchPreferDarkTheme->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onPreferDarkThemeChanged), false);
@@ -40,14 +45,20 @@ namespace wfl::ui
         refBuilder->get_widget("switch_allow_permissions", switchAllowPermissions);
         switchAllowPermissions->signal_state_set().connect(sigc::mem_fun(*this, &PreferencesWindow::onAllowPermissionsChanged), false);
 
+        Gtk::SpinButton* spinMinFontSize = nullptr;
+        refBuilder->get_widget("spinbutton_min_font_size", spinMinFontSize);
+        spinMinFontSize->signal_value_changed().connect(sigc::bind(sigc::mem_fun(*this, &PreferencesWindow::onMinFontSizeChanged), spinMinFontSize));
+
         switchCloseToTray->set_state(m_trayIcon->isVisible());
         m_switchStartInTray->set_state(util::Settings::getInstance().getValue<bool>("general", "start-in-tray") && m_trayIcon->isVisible());
         m_switchStartInTray->set_sensitive(m_trayIcon->isVisible());
         m_switchStartMinimized->set_state(util::Settings::getInstance().getValue<bool>("general", "start-minimized"));
         switchAutostart->set_state(util::Settings::getInstance().getValue<bool>("general", "autostart"));
+        m_switchNotificationSounds->set_state(util::Settings::getInstance().getValue<bool>("general", "notification-sounds", true));
         switchPreferDarkTheme->set_state(util::Settings::getInstance().getValue<bool>("appearance", "prefer-dark-theme"));
         m_comboboxHwAccel->set_active(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         switchAllowPermissions->set_state(util::Settings::getInstance().getValue<bool>("web", "allow-permissions"));
+        spinMinFontSize->set_value(util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
     }
 
     bool PreferencesWindow::onCloseToTrayChanged(bool state)
@@ -97,6 +108,13 @@ namespace wfl::ui
         return false;
     }
 
+    bool PreferencesWindow::onNotificationSoundsChanged(bool state) const
+    {
+        util::Settings::getInstance().setValue("general", "notification-sounds", state);
+
+        return false;
+    }
+
     bool PreferencesWindow::onPreferDarkThemeChanged(bool state) const
     {
         auto const settings = Gtk::Settings::get_default();
@@ -119,5 +137,12 @@ namespace wfl::ui
         auto active = m_comboboxHwAccel->get_active_row_number();
         m_webView->setHwAccelPolicy(static_cast<WebKitHardwareAccelerationPolicy>(active));
         util::Settings::getInstance().setValue("web", "hw-accel", active);
+    }
+
+    void PreferencesWindow::onMinFontSizeChanged(Gtk::SpinButton* spinButtonMinFontSize) const
+    {
+        auto const fontSize = static_cast<int>(spinButtonMinFontSize->get_value());
+        m_webView->setMinFontSize(fontSize);
+        util::Settings::getInstance().setValue("web", "min-font-size", fontSize);
     }
 }

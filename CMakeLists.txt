@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 project(
         whatsapp-for-linux
-        VERSION 1.5.2
+        VERSION 1.6.0
         DESCRIPTION "An unofficial WhatsApp desktop application for Linux"
         HOMEPAGE_URL "https://github.com/eneshecan/whatsapp-for-linux"
         LANGUAGES C CXX
@@ -9,7 +9,7 @@ project(
 
 include(GNUInstallDirs)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(WFL_NAME ${CMAKE_PROJECT_NAME})
 set(WFL_FRIENDLY_NAME "WhatsApp for Linux")
@@ -53,6 +53,9 @@ include_directories(${WEBKIT_INCLUDE_DIRS})
 pkg_check_modules(APPINDICATOR ayatana-appindicator3-0.1 REQUIRED)
 include_directories(${APPINDICATOR_INCLUDE_DIRS})
 
+pkg_check_modules(CANBERRA libcanberra REQUIRED)
+include_directories(${CANBERRA_INCLUDE_DIRS})
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/generated/)
 
 add_executable(${CMAKE_PROJECT_NAME}
@@ -60,6 +63,7 @@ add_executable(${CMAKE_PROJECT_NAME}
         ${CMAKE_CURRENT_BINARY_DIR}/generated/Resources.c
         src/util/Helper.cpp
         src/util/Settings.cpp
+        src/util/Sound.cpp
         src/ui/Application.cpp
         src/ui/MainWindow.cpp
         src/ui/PreferencesWindow.cpp
@@ -67,7 +71,13 @@ add_executable(${CMAKE_PROJECT_NAME}
         src/ui/TrayIcon.cpp
         src/ui/WebView.cpp
     )
-target_link_libraries(${CMAKE_PROJECT_NAME} ${GTKMM_LIBRARIES} ${WEBKIT_LIBRARIES} ${APPINDICATOR_LIBRARIES} ${Intl_LIBRARIES})
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        ${GTKMM_LIBRARIES}
+        ${WEBKIT_LIBRARIES}
+        ${APPINDICATOR_LIBRARIES}
+        ${CANBERRA_LIBRARIES}
+        ${Intl_LIBRARIES}
+    )
 
 install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/generated/${WFL_APP_ID}.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

@@ -183,8 +183,10 @@ namespace wfl::ui
         webkit_settings_set_enable_developer_extras(settings, TRUE);
         auto hwAccelPolicy = static_cast<WebKitHardwareAccelerationPolicy>(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         webkit_settings_set_hardware_acceleration_policy(settings, hwAccelPolicy);
+        webkit_settings_set_minimum_font_size(settings, util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
 
         webkit_web_view_set_zoom_level(*this, util::Settings::getInstance().getValue<double>("general", "zoom-level", 1.0));
+
         webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
     }
 
@@ -216,8 +218,7 @@ namespace wfl::ui
 
     void WebView::sendRequest(std::string url)
     {
-        auto const uriPrefix = std::string{"whatsapp:/"};
-        if (url.find(uriPrefix) != std::string::npos)
+        if (auto const uriPrefix = std::string{"whatsapp:/"}; url.find(uriPrefix) != std::string::npos)
         {
             url.replace(0U, uriPrefix.size(), WHATSAPP_WEB_URI);
 
@@ -267,6 +268,14 @@ namespace wfl::ui
         }
     }
 
+    void WebView::resetZoom()
+    {
+        auto const defaultLevel = 1.0;
+        webkit_web_view_set_zoom_level(*this, defaultLevel);
+        util::Settings::getInstance().setValue("general", "zoom-level", defaultLevel);
+    }
+
+
     double WebView::getZoomLevel()
     {
         return webkit_web_view_get_zoom_level(*this);
@@ -275,6 +284,12 @@ namespace wfl::ui
     std::string WebView::getZoomLevelString()
     {
         return std::to_string(static_cast<int>(std::round(getZoomLevel() * 100))).append("%");
+    }
+
+    void WebView::setMinFontSize(unsigned int fontSize)
+    {
+        auto const settings = webkit_web_view_get_settings(*this);
+        webkit_settings_set_minimum_font_size(settings, fontSize);
     }
 
     sigc::signal<void, WebKitLoadEvent> WebView::signalLoadStatus() const noexcept
