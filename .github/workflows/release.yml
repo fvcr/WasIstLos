@@ -15,7 +15,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
-          sudo apt -y install build-essential intltool cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev debhelper zsync squashfs-tools
+          sudo apt -y install build-essential intltool cmake pkg-config libgtkmm-3.0-dev libwebkit2gtk-4.0-dev libayatana-appindicator3-dev libcanberra-dev debhelper zsync squashfs-tools
 
       - name: Build & Install
         run: |
@@ -33,7 +33,12 @@ jobs:
 
       - name: Build Debian Package
         id: dpkg-buildpackage
-        run: dpkg-buildpackage -uc -us -ui
+        uses: jtdor/build-deb-action@v1
+        env:
+          DEB_BUILD_OPTIONS: noautodbgsym
+        with:
+          artifacts-dir: "."
+          buildpackage-opts: -uc -us -ui
 
       - name: Build Snap Package
         id: snapcraft
@@ -46,14 +51,6 @@ jobs:
           recipe: "./appimage/AppImageBuilder.yml"
         env:
           UPDATE_INFO: gh-releases-zsync|eneshecan|whatsapp-for-linux|${{ env.RELEASE_VERSION }}|*x86_64.AppImage.zsync
-
-      - name: Publish Snap to Store
-        id: snapcraft-publish
-        uses: snapcore/action-publish@v1
-        with:
-          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
-          snap: ${{ steps.snapcraft.outputs.snap }}
-          release: stable
 
       - name: Push Tag
         id: push-tag
@@ -90,7 +87,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: "../whatsapp-for-linux_${{ env.RELEASE_VERSION }}_amd64.deb"
+          asset_path: "whatsapp-for-linux_${{ env.RELEASE_VERSION }}_amd64.deb"
           asset_name: "whatsapp-for-linux_${{ env.RELEASE_VERSION }}_amd64.deb"
           asset_content_type: application/deb
 
@@ -112,6 +109,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: "whatsapp-for-linux-${{ env.RELEASE_VERSION}}-x86_64.AppImage"
+          asset_path: "whatsapp-for-linux-${{ env.RELEASE_VERSION }}-x86_64.AppImage"
           asset_name: "whatsapp-for-linux-${{ env.RELEASE_VERSION }}-x86_64.AppImage"
           asset_content_type: application/appimage
+
+      - name: Publish Snap to Store
+        id: snapcraft-publish
+        uses: snapcore/action-publish@v1
+        with:
+          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
+          snap: ${{ steps.snapcraft.outputs.snap }}
+          release: stable

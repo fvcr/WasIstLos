@@ -9,6 +9,7 @@
 #include "PhoneNumberDialog.hpp"
 #include "TrayIcon.hpp"
 #include "WebView.hpp"
+#include "../util/Sound.hpp"
 
 namespace wfl::ui
 {
@@ -31,18 +32,20 @@ namespace wfl::ui
             void onOpenPreferences();
             void onOpenPhoneNumber();
             void onPhoneNumberDialogResponse(int responseId);
-            void onNotificationChanged(bool attention);
+            void onNotificationChanged(bool show);
             void onShow();
             void onQuit();
             void onFullscreen();
-            void onZoomIn(Gtk::Label* zoomLevelLabel);
-            void onZoomOut(Gtk::Label* zoomLevelLabel);
+            void onZoomIn(Gtk::Button* buttonZoomLevel);
+            void onZoomOut(Gtk::Button* buttonZoomLevel);
+            void onResetZoom(Gtk::Button* buttonZoomLevel);
             void onShortcuts();
             void onAbout();
 
         private:
             TrayIcon              m_trayIcon;
             WebView               m_webView;
+            util::Sound           m_sound;
             Glib::ustring         m_pendingUrl;
             PreferencesWindow*    m_preferencesWindow;
             PhoneNumberDialog*    m_phoneNumberDialog;

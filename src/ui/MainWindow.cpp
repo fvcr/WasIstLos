@@ -15,6 +15,7 @@ namespace wfl::ui
         : Gtk::ApplicationWindow{cobject}
         , m_trayIcon{}
         , m_webView{}
+        , m_sound{}
         , m_pendingUrl{}
         , m_preferencesWindow{nullptr}
         , m_phoneNumberDialog{nullptr}
@@ -47,17 +48,18 @@ namespace wfl::ui
         refBuilder->get_widget("button_fullscreen", buttonFullscreen);
         buttonFullscreen->signal_clicked().connect(sigc::mem_fun(*this, &MainWindow::onFullscreen));
 
-        Gtk::Label* labelZoomLevel = nullptr;
-        refBuilder->get_widget("label_zoom_level", labelZoomLevel);
-        labelZoomLevel->set_label(m_webView.getZoomLevelString());
+        Gtk::Button* buttonZoomLevel = nullptr;
+        refBuilder->get_widget("button_zoom_level", buttonZoomLevel);
+        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+        buttonZoomLevel->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onResetZoom), buttonZoomLevel));
 
         Gtk::Button* buttonZoomIn = nullptr;
         refBuilder->get_widget("button_zoom_in", buttonZoomIn);
-        buttonZoomIn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), labelZoomLevel));
+        buttonZoomIn->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomIn), buttonZoomLevel));
 
         Gtk::Button* buttonZoomOut = nullptr;
         refBuilder->get_widget("button_zoom_out", buttonZoomOut);
-        buttonZoomOut->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), labelZoomLevel));
+        buttonZoomOut->signal_clicked().connect(sigc::bind(sigc::mem_fun(*this, &MainWindow::onZoomOut), buttonZoomLevel));
 
         Gtk::ModelButton* buttonPreferences = nullptr;
         refBuilder->get_widget("button_preferences", buttonPreferences);
@@ -223,11 +225,16 @@ namespace wfl::ui
         }
     }
 
-    void MainWindow::onNotificationChanged(bool attention)
+    void MainWindow::onNotificationChanged(bool show)
     {
         if (!is_visible())
         {
-            m_trayIcon.setAttention(attention);
+            m_trayIcon.setAttention(show);
+        }
+
+        if (show && util::Settings::getInstance().getValue<bool>("general", "notification-sounds", true))
+        {
+            m_sound.play("message-new-instant");
         }
     }
 
@@ -256,16 +263,22 @@ namespace wfl::ui
         m_fullscreen ? unfullscreen() : fullscreen();
     }
 
-    void MainWindow::onZoomIn(Gtk::Label* zoomLevelLabel)
+    void MainWindow::onZoomIn(Gtk::Button* buttonZoomLevel)
     {
         m_webView.zoomIn();
-        zoomLevelLabel->set_label(m_webView.getZoomLevelString());
+        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
     }
 
-    void MainWindow::onZoomOut(Gtk::Label* zoomLevelLabel)
+    void MainWindow::onZoomOut(Gtk::Button* buttonZoomLevel)
     {
         m_webView.zoomOut();
-        zoomLevelLabel->set_label(m_webView.getZoomLevelString());
+        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
+    }
+
+    void MainWindow::onResetZoom(Gtk::Button* buttonZoomLevel)
+    {
+        m_webView.resetZoom();
+        buttonZoomLevel->set_label(m_webView.getZoomLevelString());
     }
 
     void MainWindow::onShortcuts()
