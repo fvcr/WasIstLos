@@ -5,6 +5,7 @@ Maintainer: Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>
 Build-Depends: cmake,
                debhelper-compat (= 13),
                libayatana-appindicator3-dev,
+               libcanberra-dev,
                libgtkmm-3.0-dev,
                libwebkit2gtk-4.0-dev,
                pkg-config
