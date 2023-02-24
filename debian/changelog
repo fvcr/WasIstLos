@@ -1,3 +1,11 @@
+whatsapp-for-linux (1.6.0-1) unstable; urgency=medium
+
+  * New upstream version 1.6.0.
+  * Add libcanberra-dev to Build-Depends.
+  * Bump Standards-Version to 4.6.2.
+
+ -- Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>  Fri, 24 Feb 2023 14:12:18 +0000
+
 whatsapp-for-linux (1.5.2-1) unstable; urgency=medium
 
   * New upstream version 1.5.2.
