@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: whatsapp-for-linux\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-10 22:56+0100\n"
-"PO-Revision-Date: 2023-02-02 16:32+0100\n"
+"PO-Revision-Date: 2023-03-22 15:17+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,20 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/ui/MainWindow.cpp:300 ../src/ui/TrayIcon.cpp:46
+#: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:302 ../resource/ui/MainWindow.ui.h:6
+#: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:303
+#: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
 msgstr ""
 
-#: ../src/ui/MainWindow.cpp:305
+#: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
 msgstr ""
 
@@ -51,35 +51,35 @@ msgid "Show"
 msgstr ""
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
-#: ../resource/ui/ShortcutsWindow.ui.h:8
+#: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:34
-msgid "Notification Request"
+#: ../src/ui/WebView.cpp:40
+msgid "Permission Request"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:35
-msgid "Would you like to allow notifications?"
+#: ../src/ui/WebView.cpp:41
+msgid "Would you like to allow permissions?"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:69
+#: ../src/ui/WebView.cpp:75
 msgid "Save File"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:70
+#: ../src/ui/WebView.cpp:76
 msgid "Ok"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:71
+#: ../src/ui/WebView.cpp:77
 msgid "Cancel"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:322
+#: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
 msgstr ""
 
-#: ../src/ui/WebView.cpp:323
+#: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:7
+#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -157,7 +157,8 @@ msgid "Prefer Dark Theme"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
-msgid "Prefer dark theme for the application if system theme includes a dark variant"
+msgid ""
+"Prefer dark theme for the application if system theme includes a dark variant"
 msgstr ""
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
@@ -201,13 +202,21 @@ msgid "Refresh Page"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
-msgid "Enter/Exit Fullscreen"
+msgid "Zoom In"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
-msgid "Show/Hide Header Bar"
+msgid "Zoom Out"
 msgstr ""
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
+msgid "Enter/Exit Fullscreen"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:7
+msgid "Show/Hide Header Bar"
+msgstr ""
+
+#: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
 msgstr ""
