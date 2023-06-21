@@ -5,45 +5,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: WhatsApp for Linux\n"
-"Language: es\n"
+"Language: de\n"
 
 #: ../src/ui/MainWindow.cpp:344 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "Acerca de"
+msgstr "Über"
 
 #: ../src/ui/MainWindow.cpp:346 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr "WhatsApp para Linux"
+msgstr "WhatsApp für Linux"
 
 #: ../src/ui/MainWindow.cpp:347
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "Una aplicación no oficial de WhatsApp para Linux"
+msgstr "Eine inoffizieller WhatsApp Desktop App für Linux"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr "A petición"
+msgstr "Auf Abruf"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr "Siempre"
+msgstr "Immer"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr "Nunca"
+msgstr "Niemals"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr "Mostrar"
+msgstr "Zeige"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr "Salir"
+msgstr "Beenden"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr "Guardar archivo"
+msgstr "Speichere Datei"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
@@ -51,162 +51,162 @@ msgstr "Ok"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Abbrechen"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "No responde"
+msgstr "Reagiert nicht"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "La aplicación no responde. ¿Deseas recargarla?"
+msgstr "Die App reagiert nicht. Neu laden?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgstr "Vollbild"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr "Preferencias"
+msgstr "Einstellungen"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr "Atajos de teclado"
+msgstr "Tastaturkürzel"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr "Actualizar"
+msgstr "Neu laden"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr "Abrir chat por número de teléfono"
+msgstr "Chat nach Telefonnummer öffnen"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Introduce el número de teléfono (sólo dígitos)"
+msgstr "Gebe eine Telefonnummer ein (nur Zahlen)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Cerrar hacia la bandeja"
+msgstr "In Taskleiste minimieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Iniciar en la bandeja"
+msgstr "In Taskleiste starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Iniciar minimizado"
+msgstr "Minimiert starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr "Arranque automático"
+msgstr "Autostart"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Habilitar el icono de la bandeja"
+msgstr "Taskleistensymbol aktivieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Iniciar la aplicación como cerrada en la bandeja"
+msgstr "App in Taskleiste starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Iniciar la aplicación minimizada"
+msgstr "App minimiert starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Iniciar la aplicación tras el arranque del sistema"
+msgstr "App bei Systemstart starten"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr "General"
+msgstr "Allgemein"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Preferir tema oscuro"
+msgstr "Verwende dunkles Design"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Preferir un tema oscuro para la aplicación si el tema del sistema incluye una variante oscura"
+msgstr "Dunkles Design für die App nutzen, wenn das System ein dunkles Design besitzt"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr "Apariencia"
+msgstr "Erscheinungsbild"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Aceleración por hardware"
+msgstr "Hardwarebeschleunigung"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Autorizar permisos"
+msgstr "Berechtigungen erlauben"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Establecer la política de aceleración de hardware utilizada por webkit"
+msgstr "Richtlinie für die von Webkit verwendete Hardwarebeschleunigung festlegen"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Permitir permisos al iniciar la aplicación"
+msgstr "Erlaube Berechtigungen bei Start der App"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr "Página web"
+msgstr "Web"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr "Atajos"
+msgstr "Tastenkürzel"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Actualizar página"
+msgstr "Seite neu laden"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Entrar/Salir de pantalla completa"
+msgstr "Vollbild de-/aktivieren"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Mostrar/Ocultar barra de encabezado"
+msgstr "Kopfzeile anzeigen/verstecken"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr "Abrir Preferencias"
+msgstr "Einstellungen öffnen"
 
 #: ../src/ui/MainWindow.cpp:349
 msgid "GitHub Repository"
-msgstr "Repositorio GitHub"
+msgstr "GitHub Repository"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Activar los sonidos de notificación"
+msgstr "Benachrichtigungstöne aktivieren"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Emitir sonido cuando haya una notificación de la aplicación"
+msgstr "Spiele einen Ton ab, wenn eine Benachrichtigung der App gesendet wird"
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Tamaño de fuente mínimo"
+msgstr "Minimale Textgröße"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Tamaño de fuente mínimo usado para mostrar texto; los valores distintos de 0 pueden desfigurar el diseño de página"
+msgstr "Minimale Textgröße zum Anzeigen von Text, andere Werte als 0 können das Erscheinungsbild der Seite zerstören"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Zoom de acercamiento"
+msgstr "Ran zoomen"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Zoom de alejamiento"
+msgstr "Raus zoomen"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Petición de permiso"
+msgstr "Berechtigungsanfrage"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "¿Quieres dar permiso?"
+msgstr "Möchtest du die Berechtigungen erteilen?"
 
