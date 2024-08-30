@@ -1,0 +1,490 @@
+Description: Unknown locale code pt-br and zh-Hans.
+ The package appears to ship locales for a language but uses an unknown
+ locale code as a subdirectory of /usr/share/locale. This usually results
+ in users of the intended target language not finding the locale. The
+ language codes used in the locale directories are those from the ISO 639-1
+ and ISO 639-2 standards, not those usually used as TLDs (which are from
+ the ISO 3166 standard).
+ . 
+ It is possible that the language code was mistyped or incorrectly guessed
+ from the language's or country's name.
+ . 
+ Please refer to http://www.loc.gov/standards/iso639-2/php/code_list.php
+ for details.
+Author: Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>
+Forwarded: not-needed
+Last-Update: 2024-08-30
+
+--- a/po/LINGUAS
++++ b/po/LINGUAS
+@@ -9,9 +9,9 @@ it
+ ka
+ nl
+ pl
+-pt-br
++pt_BR
+ ru
+ si
+ tr
+-zh-Hans
++zh_Hans
+ 
+--- /dev/null
++++ b/po/pt_BR.po
+@@ -0,0 +1,212 @@
++msgid ""
++msgstr ""
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: POEditor.com\n"
++"Project-Id-Version: WhatsApp for Linux\n"
++"Language: pt_BR\n"
++
++#: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
++#: ../resource/ui/MainWindow.ui.h:4
++msgid "About"
++msgstr "Sobre"
++
++#: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
++msgid "WhatsApp for Linux"
++msgstr "WhatsApp para Linux"
++
++#: ../src/ui/MainWindow.cpp:346
++msgid "An unofficial WhatsApp desktop application for Linux"
++msgstr "Aplicação não oficial de WhatsApp para Linux"
++
++#: ../src/ui/PreferencesWindow.cpp:40
++msgid "On Demand"
++msgstr "Sob demanda"
++
++#: ../src/ui/PreferencesWindow.cpp:41
++msgid "Always"
++msgstr "Sempre"
++
++#: ../src/ui/PreferencesWindow.cpp:42
++msgid "Never"
++msgstr "Nunca"
++
++#: ../src/ui/TrayIcon.cpp:45
++msgid "Show"
++msgstr "Mostrar"
++
++#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
++#: ../resource/ui/ShortcutsWindow.ui.h:10
++msgid "Quit"
++msgstr "Sair"
++
++#: ../src/ui/WebView.cpp:75
++msgid "Save File"
++msgstr "Salvar arquivo"
++
++#: ../src/ui/WebView.cpp:76
++msgid "Ok"
++msgstr "Ok"
++
++#: ../src/ui/WebView.cpp:77
++msgid "Cancel"
++msgstr "Cancelar"
++
++#: ../src/ui/WebView.cpp:328
++msgid "Unresponsive"
++msgstr "No responde"
++
++#: ../src/ui/WebView.cpp:329
++msgid "The application is not responding. Would you like to reload?"
++msgstr "A aplicação não responde. Deseja recarregá-la?"
++
++#: ../resource/ui/MainWindow.ui.h:1
++msgid "Fullscreen"
++msgstr "Tela cheia"
++
++#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
++msgid "Preferences"
++msgstr "Preferências"
++
++#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
++msgid "Keyboard Shortcuts"
++msgstr "Atalhos de teclado"
++
++#: ../resource/ui/MainWindow.ui.h:7
++msgid "Refresh"
++msgstr "Atualizar"
++
++#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
++msgid "Open chat by phone number"
++msgstr "Abrir chat pelo número de telefone"
++
++#: ../resource/ui/PhoneNumberDialog.ui.h:2
++msgid "Enter phone number (only digits)"
++msgstr "Introduza o número de telefone (somente números)"
++
++#: ../resource/ui/PreferencesWindow.ui.h:1
++msgid "Close to Tray"
++msgstr "Fechar para a bandeja"
++
++#: ../resource/ui/PreferencesWindow.ui.h:2
++msgid "Start in Tray"
++msgstr "Iniciar na bandeja"
++
++#: ../resource/ui/PreferencesWindow.ui.h:3
++msgid "Start Minimized"
++msgstr "Iniciar minimizado"
++
++#: ../resource/ui/PreferencesWindow.ui.h:4
++msgid "Autostart"
++msgstr "Início automático"
++
++#: ../resource/ui/PreferencesWindow.ui.h:5
++msgid "Enable tray icon"
++msgstr "Habilitar o ícone na bandeja"
++
++#: ../resource/ui/PreferencesWindow.ui.h:6
++msgid "Start application as closed to tray"
++msgstr "Iniciar a aplicação minimizada na bandeja"
++
++#: ../resource/ui/PreferencesWindow.ui.h:7
++msgid "Start application as minimized"
++msgstr "Iniciar a aplicação minimizada"
++
++#: ../resource/ui/PreferencesWindow.ui.h:8
++msgid "Start application after system boots"
++msgstr "Iniciar a aplicação depois do inicio do sistema"
++
++#: ../resource/ui/PreferencesWindow.ui.h:11
++#: ../resource/ui/ShortcutsWindow.ui.h:2
++msgid "General"
++msgstr "Geral"
++
++#: ../resource/ui/PreferencesWindow.ui.h:12
++msgid "Prefer Dark Theme"
++msgstr "Preferir tema escuro"
++
++#: ../resource/ui/PreferencesWindow.ui.h:13
++msgid "Prefer dark theme for the application if system theme includes a dark variant"
++msgstr "Preferir um tema escuro para a aplicação se o tema do sistema inclui uma variante escura"
++
++#: ../resource/ui/PreferencesWindow.ui.h:14
++msgid "Appearance"
++msgstr "Aparência"
++
++#: ../resource/ui/PreferencesWindow.ui.h:15
++msgid "Hardware Acceleration"
++msgstr "Aceleração por hardware"
++
++#: ../resource/ui/PreferencesWindow.ui.h:16
++msgid "Allow Permissions"
++msgstr "Autorizar permissões"
++
++#: ../resource/ui/PreferencesWindow.ui.h:17
++msgid "Set hardware acceleration policy used by webkit"
++msgstr "Definir a política de aceleração de hardware usada pelo webkit"
++
++#: ../resource/ui/PreferencesWindow.ui.h:18
++msgid "Allow permissions on application startup"
++msgstr "Permitir permissões ao iniciar a aplicação"
++
++#: ../resource/ui/PreferencesWindow.ui.h:21
++msgid "Web"
++msgstr "Página web"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:1
++msgid "Shortcuts"
++msgstr "Atalhos"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:3
++msgid "Refresh Page"
++msgstr "Atualizar página"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:6
++msgid "Enter/Exit Fullscreen"
++msgstr "Entrar/Sair da tela cheia"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:7
++msgid "Show/Hide Header Bar"
++msgstr "Mostrar/Ocultar barra de cabeçalho"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:8
++msgid "Open Preferences"
++msgstr "Abrir Preferências"
++
++#: ../src/ui/MainWindow.cpp:348
++msgid "GitHub Repository"
++msgstr "Repositório GitHub"
++
++#: ../resource/ui/PreferencesWindow.ui.h:9
++msgid "Enable Notification Sounds"
++msgstr "Ativar sons de notificação"
++
++#: ../resource/ui/PreferencesWindow.ui.h:10
++msgid "Play sound on a notification raised by the application"
++msgstr "Reproduzir som em uma notificação gerada pelo aplicativo"
++
++#: ../resource/ui/PreferencesWindow.ui.h:19
++msgid "Minimum Font Size"
++msgstr "Tamanho mínimo da fonte"
++
++#: ../resource/ui/PreferencesWindow.ui.h:20
++msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
++msgstr "Tamanho mínimo da fonte usado para exibir o texto; valores diferentes de 0 podem quebrar os layouts de página"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:4
++msgid "Zoom In"
++msgstr "Ampliar"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:5
++msgid "Zoom Out"
++msgstr "Reduzir o zoom"
++
++#: ../src/ui/WebView.cpp:40
++msgid "Permission Request"
++msgstr "Solicitação de permissão"
++
++#: ../src/ui/WebView.cpp:41
++msgid "Would you like to allow permissions?"
++msgstr "Você gostaria de permitir permissões?"
++
+--- /dev/null
++++ b/po/zh_Hans.po
+@@ -0,0 +1,212 @@
++msgid ""
++msgstr ""
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"X-Generator: POEditor.com\n"
++"Project-Id-Version: WhatsApp for Linux\n"
++"Language: zh_Hans\n"
++
++#: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
++#: ../resource/ui/MainWindow.ui.h:4
++msgid "About"
++msgstr "关于"
++
++#: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
++msgid "WhatsApp for Linux"
++msgstr "WhatsApp for Linux"
++
++#: ../src/ui/MainWindow.cpp:346
++msgid "An unofficial WhatsApp desktop application for Linux"
++msgstr "供 Linux 使用的非官方 WhatsApp 桌面应用"
++
++#: ../src/ui/PreferencesWindow.cpp:40
++msgid "On Demand"
++msgstr "按需"
++
++#: ../src/ui/PreferencesWindow.cpp:41
++msgid "Always"
++msgstr "总是"
++
++#: ../src/ui/PreferencesWindow.cpp:42
++msgid "Never"
++msgstr "从不"
++
++#: ../src/ui/TrayIcon.cpp:45
++msgid "Show"
++msgstr "显示"
++
++#: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
++#: ../resource/ui/ShortcutsWindow.ui.h:10
++msgid "Quit"
++msgstr "退出"
++
++#: ../src/ui/WebView.cpp:75
++msgid "Save File"
++msgstr "保存文件"
++
++#: ../src/ui/WebView.cpp:76
++msgid "Ok"
++msgstr "确定"
++
++#: ../src/ui/WebView.cpp:77
++msgid "Cancel"
++msgstr "取消"
++
++#: ../src/ui/WebView.cpp:328
++msgid "Unresponsive"
++msgstr "未响应"
++
++#: ../src/ui/WebView.cpp:329
++msgid "The application is not responding. Would you like to reload?"
++msgstr "应用没有响应，要重新加载吗？"
++
++#: ../resource/ui/MainWindow.ui.h:1
++msgid "Fullscreen"
++msgstr "全屏"
++
++#: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
++msgid "Preferences"
++msgstr "首选项"
++
++#: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
++msgid "Keyboard Shortcuts"
++msgstr "快捷键列表"
++
++#: ../resource/ui/MainWindow.ui.h:7
++msgid "Refresh"
++msgstr "刷新"
++
++#: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
++msgid "Open chat by phone number"
++msgstr "从电话号码新建对话"
++
++#: ../resource/ui/PhoneNumberDialog.ui.h:2
++msgid "Enter phone number (only digits)"
++msgstr "输入电话号码（仅数字）"
++
++#: ../resource/ui/PreferencesWindow.ui.h:1
++msgid "Close to Tray"
++msgstr "关闭至托盘"
++
++#: ../resource/ui/PreferencesWindow.ui.h:2
++msgid "Start in Tray"
++msgstr "启动至托盘"
++
++#: ../resource/ui/PreferencesWindow.ui.h:3
++msgid "Start Minimized"
++msgstr "最小化启动"
++
++#: ../resource/ui/PreferencesWindow.ui.h:4
++msgid "Autostart"
++msgstr "开机自启动"
++
++#: ../resource/ui/PreferencesWindow.ui.h:5
++msgid "Enable tray icon"
++msgstr "启用托盘图标"
++
++#: ../resource/ui/PreferencesWindow.ui.h:6
++msgid "Start application as closed to tray"
++msgstr "应用启动时关闭到托盘"
++
++#: ../resource/ui/PreferencesWindow.ui.h:7
++msgid "Start application as minimized"
++msgstr "应用启动时最小化"
++
++#: ../resource/ui/PreferencesWindow.ui.h:8
++msgid "Start application after system boots"
++msgstr "开机时启动应用"
++
++#: ../resource/ui/PreferencesWindow.ui.h:11
++#: ../resource/ui/ShortcutsWindow.ui.h:2
++msgid "General"
++msgstr "通用"
++
++#: ../resource/ui/PreferencesWindow.ui.h:12
++msgid "Prefer Dark Theme"
++msgstr "深色模式优先"
++
++#: ../resource/ui/PreferencesWindow.ui.h:13
++msgid "Prefer dark theme for the application if system theme includes a dark variant"
++msgstr "系统主题支持时优先使用深色模式"
++
++#: ../resource/ui/PreferencesWindow.ui.h:14
++msgid "Appearance"
++msgstr "外观"
++
++#: ../resource/ui/PreferencesWindow.ui.h:15
++msgid "Hardware Acceleration"
++msgstr "硬件加速"
++
++#: ../resource/ui/PreferencesWindow.ui.h:16
++msgid "Allow Permissions"
++msgstr "授予权限"
++
++#: ../resource/ui/PreferencesWindow.ui.h:17
++msgid "Set hardware acceleration policy used by webkit"
++msgstr "设置 WebKit 的硬件加速模式"
++
++#: ../resource/ui/PreferencesWindow.ui.h:18
++msgid "Allow permissions on application startup"
++msgstr "应用启动时授予权限"
++
++#: ../resource/ui/PreferencesWindow.ui.h:21
++msgid "Web"
++msgstr "Web"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:1
++msgid "Shortcuts"
++msgstr "快捷键"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:3
++msgid "Refresh Page"
++msgstr "刷新页面"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:6
++msgid "Enter/Exit Fullscreen"
++msgstr "进入 / 退出全屏"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:7
++msgid "Show/Hide Header Bar"
++msgstr "显示 / 隐藏标题栏"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:8
++msgid "Open Preferences"
++msgstr "打开首选项"
++
++#: ../src/ui/MainWindow.cpp:348
++msgid "GitHub Repository"
++msgstr "GitHub 项目"
++
++#: ../resource/ui/PreferencesWindow.ui.h:9
++msgid "Enable Notification Sounds"
++msgstr "启用通知音效"
++
++#: ../resource/ui/PreferencesWindow.ui.h:10
++msgid "Play sound on a notification raised by the application"
++msgstr "应用发出通知时播放音效"
++
++#: ../resource/ui/PreferencesWindow.ui.h:19
++msgid "Minimum Font Size"
++msgstr "最小字体大小"
++
++#: ../resource/ui/PreferencesWindow.ui.h:20
++msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
++msgstr "界面文字的最小大小（设为非 0 值可能导致布局问题）"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:4
++msgid "Zoom In"
++msgstr "放大"
++
++#: ../resource/ui/ShortcutsWindow.ui.h:5
++msgid "Zoom Out"
++msgstr "缩小"
++
++#: ../src/ui/WebView.cpp:40
++msgid "Permission Request"
++msgstr "请求权限"
++
++#: ../src/ui/WebView.cpp:41
++msgid "Would you like to allow permissions?"
++msgstr "要授予权限吗？"
++
+--- a/resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
++++ b/resource/desktop/com.github.eneshecan.WhatsAppForLinux.desktop.in
+@@ -11,7 +11,7 @@ Name[it]=WhatsApp per Linux
+ Name[ka]=WhatsApp-ი ლინუქსისთვის
+ Name[nl]=WhatsApp voor Linux
+ Name[pl]=WhatsApp dla Linux
+-Name[pt-br]=WhatsApp para Linux
++Name[pt_BR]=WhatsApp para Linux
+ Name[ru]=WhatsApp для Linux
+ Name[si]=ලිනක්ස් සඳහා WhatsApp
+ Name[tr]=Linux için WhatsApp
+@@ -25,7 +25,7 @@ GenericName[it]=Client WhatsApp non uffi
+ GenericName[ka]=WhatsApp-ის არაოფიციალური კლიენტი
+ GenericName[nl]=Niet-officiële WhatsApp-client
+ GenericName[pl]=Nieoficjalny klient WhatsApp
+-GenericName[pt-br]=Cliente não oficial de WhatsApp
++GenericName[pt_BR]=Cliente não oficial de WhatsApp
+ GenericName[ru]=Неофициальный клиент WhatsApp
+ GenericName[si]=නිල නොවන WhatsApp සේවාදායකයා
+ GenericName[tr]=Resmi olmayan WhatsApp istemcisi
+@@ -38,7 +38,7 @@ Comment[hu]=Egy nem hivatalos WhatsApp a
+ Comment[it]=Un'applicazione WhatsApp non ufficiale per Linux
+ Comment[ka]=WhatsApp-ის არაოფიციალური კლიენტი ლინუქსისთვის
+ Comment[nl]=Een onofficiële WhatsApp-desktoptoepassing voor Linux
+-Comment[pt-br]=Uma aplicação não oficial de WhatsApp para Linux
++Comment[pt_BR]=Uma aplicação não oficial de WhatsApp para Linux
+ Comment[ru]=Неофициальное приложение WhatsApp для Linux
+ Comment[si]=ලිනක්ස් සඳහා නිල නොවන WhatsApp ඩෙස්ක්ටොප් යෙදුමකි
+ Comment[tr]=Linux için resmi olmayan bir WhatsApp masaüstü uygulaması
