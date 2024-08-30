@@ -1,19 +1,24 @@
 #include "WebView.hpp"
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <streambuf>
 #include <optional>
 #include <locale>
 #include <glibmm/i18n.h>
 #include <glibmm/main.h>
+#include <glibmm/miscutils.h>
 #include <gtkmm/messagedialog.h>
 #include <gtkmm/filechooserdialog.h>
 #include "../util/Settings.hpp"
+#include "Config.hpp"
 
 namespace wfl::ui
 {
     namespace
     {
         constexpr auto const WHATSAPP_WEB_URI = "https://web.whatsapp.com";
+        constexpr auto const USER_AGENT       = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
         std::optional<std::string> getSystemLanguage()
         {
@@ -146,6 +151,20 @@ namespace wfl::ui
 
             return FALSE;
         }
+
+        bool cssFileExists(const std::string& filePath)
+        {
+            auto const file = std::ifstream(filePath);
+            return file.good();
+        }
+
+        std::string loadCssContent(const std::string& cssFilePath)
+        {
+            auto cssFile    = std::ifstream(cssFilePath);
+            auto cssContent = std::string((std::istreambuf_iterator<char>(cssFile)), std::istreambuf_iterator<char>());
+
+            return cssContent;
+        }
     }
 
     namespace detail
@@ -170,6 +189,9 @@ namespace wfl::ui
     {
         auto const webContext = webkit_web_view_get_context(*this);
 
+        auto configDir   = Glib::get_user_config_dir();
+        auto cssFilePath = configDir + "/" + WFL_NAME + "/web.css";
+
         g_signal_connect(*this, "load-changed", G_CALLBACK(detail::loadChanged), this);
         g_signal_connect(*this, "permission-request", G_CALLBACK(permissionRequest), nullptr);
         g_signal_connect(*this, "decide-policy", G_CALLBACK(decidePolicy), nullptr);
@@ -186,12 +208,18 @@ namespace wfl::ui
         }
 
         auto const settings = webkit_web_view_get_settings(*this);
+        webkit_settings_set_user_agent(settings, USER_AGENT);
         webkit_settings_set_enable_developer_extras(settings, TRUE);
         auto hwAccelPolicy = static_cast<WebKitHardwareAccelerationPolicy>(util::Settings::getInstance().getValue<int>("web", "hw-accel", 1));
         webkit_settings_set_hardware_acceleration_policy(settings, hwAccelPolicy);
         webkit_settings_set_minimum_font_size(settings, util::Settings::getInstance().getValue<int>("web", "min-font-size", 0));
 
         webkit_web_view_set_zoom_level(*this, util::Settings::getInstance().getValue<double>("general", "zoom-level", 1.0));
+
+        if (cssFileExists(cssFilePath))
+        {
+            applyCustomCss(cssFilePath);
+        }
 
         webkit_web_view_load_uri(*this, WHATSAPP_WEB_URI);
     }
@@ -343,5 +371,16 @@ namespace wfl::ui
         m_stoppedResponding = !responsive;
 
         return true;
+    }
+
+    void WebView::applyCustomCss(const std::string& cssFilePath)
+    {
+        auto const cssContent = loadCssContent(cssFilePath);
+
+        auto* styleSheet
+            = webkit_user_style_sheet_new(cssContent.c_str(), WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES, WEBKIT_USER_STYLE_LEVEL_USER, nullptr, nullptr);
+
+        auto* manager = webkit_web_view_get_user_content_manager(*this);
+        webkit_user_content_manager_add_style_sheet(manager, styleSheet);
     }
 }

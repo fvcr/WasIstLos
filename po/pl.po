@@ -5,208 +5,208 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: WhatsApp for Linux\n"
-"Language: ru\n"
+"Language: pl\n"
 
 #: ../src/ui/MainWindow.cpp:343 ../src/ui/TrayIcon.cpp:46
 #: ../resource/ui/MainWindow.ui.h:4
 msgid "About"
-msgstr "О программе"
+msgstr "O programie"
 
 #: ../src/ui/MainWindow.cpp:345 ../resource/ui/MainWindow.ui.h:6
 msgid "WhatsApp for Linux"
-msgstr "WhatsApp для Linux"
+msgstr "WhatsApp dla Linux"
 
 #: ../src/ui/MainWindow.cpp:346
 msgid "An unofficial WhatsApp desktop application for Linux"
-msgstr "Неофициальное приложение WhatsApp для Linux"
+msgstr "Nieoficjalna aplikacja WhatsApp dla Linuksa"
 
 #: ../src/ui/PreferencesWindow.cpp:40
 msgid "On Demand"
-msgstr "По запросу"
+msgstr "Na życzenie"
 
 #: ../src/ui/PreferencesWindow.cpp:41
 msgid "Always"
-msgstr "Всегда"
+msgstr "Zawsze"
 
 #: ../src/ui/PreferencesWindow.cpp:42
 msgid "Never"
-msgstr "Никогда"
+msgstr "Nigdy"
 
 #: ../src/ui/TrayIcon.cpp:45
 msgid "Show"
-msgstr "Показывать"
+msgstr "Pokaż"
 
 #: ../src/ui/TrayIcon.cpp:47 ../resource/ui/MainWindow.ui.h:5
 #: ../resource/ui/ShortcutsWindow.ui.h:10
 msgid "Quit"
-msgstr "Выход"
+msgstr "Wyjdź"
 
 #: ../src/ui/WebView.cpp:75
 msgid "Save File"
-msgstr "Сохранить файл"
+msgstr "Zapisz Plik"
 
 #: ../src/ui/WebView.cpp:76
 msgid "Ok"
-msgstr "ОК"
+msgstr "Ok"
 
 #: ../src/ui/WebView.cpp:77
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Anuluj"
 
 #: ../src/ui/WebView.cpp:328
 msgid "Unresponsive"
-msgstr "Не отвечает"
+msgstr "Nie odpowiada"
 
 #: ../src/ui/WebView.cpp:329
 msgid "The application is not responding. Would you like to reload?"
-msgstr "Приложение не отвечает. Перезагрузить его?"
+msgstr "Aplikacja nie odpowiada. Czy chciałbyś wczytać ponownie?"
 
 #: ../resource/ui/MainWindow.ui.h:1
 msgid "Fullscreen"
-msgstr "На весь экран"
+msgstr "Pełny ekran"
 
 #: ../resource/ui/MainWindow.ui.h:2 ../resource/ui/PreferencesWindow.ui.h:22
 msgid "Preferences"
-msgstr "Параметры"
+msgstr "Preferencje"
 
 #: ../resource/ui/MainWindow.ui.h:3 ../resource/ui/ShortcutsWindow.ui.h:9
 msgid "Keyboard Shortcuts"
-msgstr "Комбинации клавиш"
+msgstr "Skróty Klawiszowe"
 
 #: ../resource/ui/MainWindow.ui.h:7
 msgid "Refresh"
-msgstr "Обновить"
+msgstr "Odśwież"
 
 #: ../resource/ui/MainWindow.ui.h:8 ../resource/ui/PhoneNumberDialog.ui.h:1
 msgid "Open chat by phone number"
-msgstr "Открыть чат по номеру телефона"
+msgstr "Otwórz czat przez numer telefonu"
 
 #: ../resource/ui/PhoneNumberDialog.ui.h:2
 msgid "Enter phone number (only digits)"
-msgstr "Введите номер телефона (только цифры)"
+msgstr "Wprowadź numer telefonu (jedynie cyfry)"
 
 #: ../resource/ui/PreferencesWindow.ui.h:1
 msgid "Close to Tray"
-msgstr "Сворачивать в системный лоток"
+msgstr "Zminimalizuj do zasobnika"
 
 #: ../resource/ui/PreferencesWindow.ui.h:2
 msgid "Start in Tray"
-msgstr "Запускать в системном лотке"
+msgstr "Uruchom w zasobniku"
 
 #: ../resource/ui/PreferencesWindow.ui.h:3
 msgid "Start Minimized"
-msgstr "Запускать в свёрнутом виде"
+msgstr "Uruchom zminimalizowany"
 
 #: ../resource/ui/PreferencesWindow.ui.h:4
 msgid "Autostart"
-msgstr "Автозапуск"
+msgstr "Automatyczny start"
 
 #: ../resource/ui/PreferencesWindow.ui.h:5
 msgid "Enable tray icon"
-msgstr "Значок в системном лотке"
+msgstr "Aktywyj ikonę zasobnika"
 
 #: ../resource/ui/PreferencesWindow.ui.h:6
 msgid "Start application as closed to tray"
-msgstr "Запускать приложение свёрнутым в системном лотке"
+msgstr "Uruchom aplikację jako zamkniętą w zasobniku"
 
 #: ../resource/ui/PreferencesWindow.ui.h:7
 msgid "Start application as minimized"
-msgstr "Запускать приложение в свёрнутом виде"
+msgstr "Uruchom aplikację jako zminimalizowaną"
 
 #: ../resource/ui/PreferencesWindow.ui.h:8
 msgid "Start application after system boots"
-msgstr "Запускать приложение после загрузки системы"
+msgstr "Uruchom aplikację po uruchomieniu systemu"
 
 #: ../resource/ui/PreferencesWindow.ui.h:11
 #: ../resource/ui/ShortcutsWindow.ui.h:2
 msgid "General"
-msgstr "Общие"
+msgstr "Ogólne"
 
 #: ../resource/ui/PreferencesWindow.ui.h:12
 msgid "Prefer Dark Theme"
-msgstr "Предпочитать Тёмную Тему"
+msgstr "Preferuj ciemny motyw"
 
 #: ../resource/ui/PreferencesWindow.ui.h:13
 msgid "Prefer dark theme for the application if system theme includes a dark variant"
-msgstr "Предпочитать тёмную тему, если система предусматривает тёмный вариант"
+msgstr "Preferuj ciemny motyw dla aplikacji jeśli motyw systemowy uwzględnia ciemny wariant"
 
 #: ../resource/ui/PreferencesWindow.ui.h:14
 msgid "Appearance"
-msgstr "Внешний вид"
+msgstr "Wygląd"
 
 #: ../resource/ui/PreferencesWindow.ui.h:15
 msgid "Hardware Acceleration"
-msgstr "Аппаратное ускорение"
+msgstr "Akceleracja Sprzętowa"
 
 #: ../resource/ui/PreferencesWindow.ui.h:16
 msgid "Allow Permissions"
-msgstr "Предоставить разрешения"
+msgstr "Zezwalaj na uprawnienia"
 
 #: ../resource/ui/PreferencesWindow.ui.h:17
 msgid "Set hardware acceleration policy used by webkit"
-msgstr "Установить политику аппаратного ускорения, используемую webkit"
+msgstr "Ustaw zasady przyspieszania sprzętowego używane przez webkit"
 
 #: ../resource/ui/PreferencesWindow.ui.h:18
 msgid "Allow permissions on application startup"
-msgstr "Предоставить разрешения при запуске приложения"
+msgstr "Zezwalaj na uprawnienia przy uruchamianiu aplikacji"
 
 #: ../resource/ui/PreferencesWindow.ui.h:21
 msgid "Web"
-msgstr "Интернет"
+msgstr "Sieć"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:1
 msgid "Shortcuts"
-msgstr "Комбинации клавиш"
+msgstr "Skróty"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:3
 msgid "Refresh Page"
-msgstr "Обновить страницу"
+msgstr "Odśwież Stronę"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:6
 msgid "Enter/Exit Fullscreen"
-msgstr "Включить или отключить полноэкранный режим"
+msgstr "Wejdź/Wyjdź z pełnego ekranu"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:7
 msgid "Show/Hide Header Bar"
-msgstr "Показать или скрыть строку заголовка"
+msgstr "Pokaż/Ukryj pasek nagłówka"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:8
 msgid "Open Preferences"
-msgstr "Открыть параметры"
+msgstr "Otwórz Preferencje"
 
 #: ../src/ui/MainWindow.cpp:348
 msgid "GitHub Repository"
-msgstr "Репозиторий на GitHub"
+msgstr "Repozytorium GitHuba"
 
 #: ../resource/ui/PreferencesWindow.ui.h:9
 msgid "Enable Notification Sounds"
-msgstr "Включение звуковых сигналов уведомлений"
+msgstr "Włącz dźwięki powiadomień"
 
 #: ../resource/ui/PreferencesWindow.ui.h:10
 msgid "Play sound on a notification raised by the application"
-msgstr "Воспроизведение звука при появлении уведомления, вызванного приложением"
+msgstr "Odtwórz dźwięk powiadomienia wywołanego przez aplikację "
 
 #: ../resource/ui/PreferencesWindow.ui.h:19
 msgid "Minimum Font Size"
-msgstr "Минимальный размер шрифта"
+msgstr "Minimalny rozmiar czcionki"
 
 #: ../resource/ui/PreferencesWindow.ui.h:20
 msgid "Minimum font size used to display text, values other than 0 can potentially break page layouts"
-msgstr "Минимальный размер шрифта, используемый для отображения текста; значения, отличные от 0, могут нарушать макеты страниц"
+msgstr "Minimalny rozmiar czcionki używanej do wyświetlania tekstu, wartości inne niż 0 mogą potencjalnie uszkodzić układ strony"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:4
 msgid "Zoom In"
-msgstr "Увеличить"
+msgstr "Przybliż"
 
 #: ../resource/ui/ShortcutsWindow.ui.h:5
 msgid "Zoom Out"
-msgstr "Уменьшение масштаба"
+msgstr "Oddal"
 
 #: ../src/ui/WebView.cpp:40
 msgid "Permission Request"
-msgstr "Запрос разрешения"
+msgstr "Wymagane uprawnienia"
 
 #: ../src/ui/WebView.cpp:41
 msgid "Would you like to allow permissions?"
-msgstr "Хотите ли вы разрешить разрешения?"
+msgstr "Czy chcesz zezwolić na uprawnienia?"
 
