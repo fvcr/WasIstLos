@@ -1,3 +1,16 @@
+whatsapp-for-linux (1.6.5-1) unstable; urgency=medium
+
+  * New upstream version 1.6.5.
+  * Change from libwebkit2gtk-4.0-dev to libwebkit2gtk-4.1-dev
+    in the Build-Depends field.
+  * Change from pkg-config to pkgconf in the Build-Depends field.
+  * Add debian/patches/unknown-locale-code.patch.
+  * Bump Standards-Version to 4.7.0.
+  * Update upstream and packaging copyright years.
+  * Add debian/patches/remove-files.patch.
+
+ -- Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>  Fri, 30 Aug 2024 14:17:05 +0000
+
 whatsapp-for-linux (1.6.3-1) unstable; urgency=medium
 
   * New upstream version 1.6.3.
