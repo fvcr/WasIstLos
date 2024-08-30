@@ -8,7 +8,7 @@ Build-Depends: cmake,
                libcanberra-dev,
                libgtkmm-3.0-dev,
                libwebkit2gtk-4.1-dev,
-               pkg-config
+               pkgconf
 Standards-Version: 4.6.2
 Homepage: https://github.com/eneshecan/whatsapp-for-linux
 Rules-Requires-Root: no
