@@ -38,6 +38,7 @@ namespace wfl::ui
         private:
             void onLoadStatusChanged(WebKitLoadEvent loadEvent);
             bool onTimeout();
+            void applyCustomCss(const std::string& cssFilePath);
 
             friend void detail::loadChanged(WebKitWebView*, WebKitLoadEvent, gpointer);
 
