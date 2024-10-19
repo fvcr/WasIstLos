@@ -1,4 +1,4 @@
-Source: whatsapp-for-linux
+Source: wasistlos
 Section: web
 Priority: optional
 Maintainer: Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>
@@ -10,10 +10,12 @@ Build-Depends: cmake,
                libwebkit2gtk-4.1-dev,
                pkgconf
 Standards-Version: 4.7.0
-Homepage: https://github.com/eneshecan/whatsapp-for-linux
+Vcs-Browser: https://salsa.debian.org/debian/WasIstLos
+Vcs-Git: https://salsa.debian.org/debian/WasIstLos.git
+Homepage: https://github.com/xeco23/WasIstLos
 Rules-Requires-Root: no
 
-Package: whatsapp-for-linux
+Package: wasistlos
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}

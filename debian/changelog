@@ -1,3 +1,9 @@
+wasistlos (1.7.0-1) unstable; urgency=medium
+
+  * Rename whatsapp-for-linux to wasistlos.
+
+ -- Francisco Vilmar Cardoso Ruviaro <vilmar@debian.org>  Sat, 19 Oct 2024 18:51:46 +0000
+
 whatsapp-for-linux (1.6.5-1) unstable; urgency=medium
 
   * New upstream version 1.6.5.
