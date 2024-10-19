@@ -1,4 +1,4 @@
-Source: whatsapp-for-linux
+Source: wasistlos
 Section: web
 Priority: optional
 Maintainer: Enes Hecan <nshecan@gmail.com>
@@ -9,12 +9,12 @@ Build-Depends: cmake,
                libgtkmm-3.0-dev,
                libwebkit2gtk-4.1-dev,
                libcanberra-dev,
-               pkg-config
+               pkgconf
 Standards-Version: 4.5.1
-Homepage: https://github.com/eneshecan/whatsapp-for-linux
+Homepage: https://github.com/xeco23/WasIstLos
 Rules-Requires-Root: no
 
-Package: whatsapp-for-linux
+Package: wasistlos
 Architecture: any
 Depends: glib-networking,
          gstreamer1.0-libav,
